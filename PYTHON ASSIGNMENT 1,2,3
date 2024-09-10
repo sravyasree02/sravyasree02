@@ -1,0 +1,203 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": [],
+      "authorship_tag": "ABX9TyPy6gD7lo1cairyayzA8hqS",
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/sravyasree02/sravyasree02/blob/main/PYTHON%20ASSIGNMENT%201%2C2%2C3\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "ZJzRG-r7IrGp",
+        "outputId": "4049ecae-1d6c-4e72-c83d-4a76ca80a354"
+      },
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Requirement already satisfied: biopython==1.81 in /usr/local/lib/python3.10/dist-packages (1.81)\n",
+            "Requirement already satisfied: numpy in /usr/local/lib/python3.10/dist-packages (from biopython==1.81) (1.26.4)\n",
+            "ID :NR_131217.1\n",
+            "Sequence :AGTTAGTGCTGGGAAACAGTGCTAAGAAGGATACAGTGGCTAGAAGTCGTCCTGTCGTCCTGCCTCACAGTAACATCGTTACCGAATTCTCAGCAGGTGAACCAAATGAAATGGTCAACTGAAAGCCAACCAGGTCTCTCCTTGTGAGAAGTGAATTTCTTCAACGTTTATAGAACTGAGGTATTACATTATTGGATGAATTAAGAAAACAATCTAACCTGATGTGTGAAAATTTCTGCTTGTGAGAATCCGTGTTATTTCAATTATCCAATCAAGAGCCTAATTCGTATAAAAGAAACACAGCAGCTTGTTGCTCATCTTTTTATCTAAGGACGGTTTGTCTTGACAGAGGGTGTCTGGCTGTTTTGGGGAAACTATTCCTGACCTTATTTTGACTAAAAAGTTGCCTGCTGTACCAGCAAAAAATCACCATGTACCAACCTATCCAAACTTATCCATGGATGAATCTATCCAGAAGACGGGAGTTCCGATGCTTGTCTTGCTCTGAATGTCTGCTTGTCACCTGCTTAGGGTTATCGACTGTGATTCTGGGACTCATTGTTGTTCTACAGGACCCCTCTGACTCTGTGGTTTTCTCTACTGGATTAACAATGATAGCCATAGGTGCTTTTTTTGTTGTCCTCACTGGAGTGACAGCCCTGTGTACGGTTACAGTCGACGAGAACTTGCAGAAAACCACGAGGCTAAGACTAGGAGTGATACGAAAAAGCGGAAGTCTCCAAGGAACTACAGAGCCTTCCATGACTCACTCAATAATCGCTAGCACCTCGCTGTAGTTGTACATTGAACCCTGGCATCTTCGTCTTTGGAACTAAGTCTCCTGAGCATTGTTTTTAAATAGAAATAAAATCTGGCTTTTAAAAAAAAAAAAAAA\n",
+            "Length :895\n"
+          ]
+        }
+      ],
+      "source": [
+        "!pip install biopython==1.81\n",
+        "from Bio import SeqIO\n",
+        "for record in SeqIO.parse(\"/content/sequence.fasta\", \"fasta\"):\n",
+        "    print(f\"ID :{record.id}\")\n",
+        "    print(f\"Sequence :{record.seq}\")\n",
+        "    print(f\"Length :{len(record)}\")"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "!pip install biopython==1.81\n",
+        "from Bio.SeqUtils import GC\n",
+        "from collections import Counter\n",
+        "\n",
+        "# Define count_elements function\n",
+        "def count_elements(seq):\n",
+        "    return Counter(seq)\n",
+        "\n",
+        "# Define gc_count function\n",
+        "def gc_count(seq):\n",
+        "    return GC(seq)\n",
+        "\n",
+        "# Sample sequences\n",
+        "dna_seq = \"ATGCATGCATGCATGC\"\n",
+        "protein_seq = \"MVHLTPEEKSAVTALWGKVNVDEVGGEALGRLLVVYPWTQRFFESFGDLSTPDAVMGNPK\"\n",
+        "\n",
+        "# Calculate counts\n",
+        "dna_counts = count_elements(dna_seq)\n",
+        "protein_counts = count_elements(protein_seq)\n",
+        "gc = gc_count(dna_seq)\n",
+        "\n",
+        "# Print results\n",
+        "print(f\"DNA nucleotide counts: {dna_counts}\")\n",
+        "print(f\"Protein amino acid counts: {protein_counts}\")\n",
+        "print(f\"GC content: {gc:.2f}%\")\n"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "sMzmIMh7PcrP",
+        "outputId": "edfa821d-3389-4bb5-cc27-ffcf3a41e205"
+      },
+      "execution_count": 22,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Collecting biopython==1.81\n",
+            "  Downloading biopython-1.81-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (13 kB)\n",
+            "Requirement already satisfied: numpy in /usr/local/lib/python3.10/dist-packages (from biopython==1.81) (1.26.4)\n",
+            "Downloading biopython-1.81-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (3.1 MB)\n",
+            "\u001b[2K   \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m3.1/3.1 MB\u001b[0m \u001b[31m70.4 MB/s\u001b[0m eta \u001b[36m0:00:00\u001b[0m\n",
+            "\u001b[?25hInstalling collected packages: biopython\n",
+            "Successfully installed biopython-1.81\n",
+            "DNA nucleotide counts: Counter({'A': 4, 'T': 4, 'G': 4, 'C': 4})\n",
+            "Protein amino acid counts: Counter({'V': 8, 'L': 6, 'G': 6, 'E': 5, 'T': 4, 'P': 4, 'A': 4, 'K': 3, 'S': 3, 'D': 3, 'F': 3, 'M': 2, 'W': 2, 'N': 2, 'R': 2, 'H': 1, 'Y': 1, 'Q': 1})\n",
+            "GC content: 50.00%\n"
+          ]
+        },
+        {
+          "output_type": "stream",
+          "name": "stderr",
+          "text": [
+            "/usr/local/lib/python3.10/dist-packages/Bio/SeqUtils/__init__.py:144: BiopythonDeprecationWarning: GC is deprecated; please use gc_fraction instead.\n",
+            "  warnings.warn(\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "def needleman_wunsch(seq1, seq2, match=1, mismatch=-1, gap=-1):\n",
+        "    # Initialize the score matrix\n",
+        "    m, n = len(seq1), len(seq2)\n",
+        "    score_matrix = [[0] * (n + 1) for _ in range(m + 1)]\n",
+        "\n",
+        "    # Initialize gap penalties\n",
+        "    for i in range(m + 1):\n",
+        "        score_matrix[i][0] = i * gap\n",
+        "    for j in range(n + 1):\n",
+        "        score_matrix[0][j] = j * gap\n",
+        "\n",
+        "    # Fill in the score matrix\n",
+        "    for i in range(1, m + 1):\n",
+        "        for j in range(1, n + 1):\n",
+        "            match_score = score_matrix[i - 1][j - 1] + (match if seq1[i - 1] == seq2[j - 1] else mismatch)\n",
+        "            delete_score = score_matrix[i - 1][j] + gap\n",
+        "            insert_score = score_matrix[i][j - 1] + gap\n",
+        "            score_matrix[i][j] = max(match_score, delete_score, insert_score)\n",
+        "\n",
+        "    # Traceback to get the aligned sequences\n",
+        "    aligned_seq1, aligned_seq2 = [], []\n",
+        "    i, j = m, n\n",
+        "    while i > 0 or j > 0:\n",
+        "        current_score = score_matrix[i][j]\n",
+        "        if i > 0 and j > 0 and (seq1[i - 1] == seq2[j - 1] or score_matrix[i][j] == score_matrix[i - 1][j - 1] + mismatch):\n",
+        "            aligned_seq1.append(seq1[i - 1])\n",
+        "            aligned_seq2.append(seq2[j - 1])\n",
+        "            i -= 1\n",
+        "            j -= 1\n",
+        "        elif i > 0 and score_matrix[i][j] == score_matrix[i - 1][j] + gap:\n",
+        "            aligned_seq1.append(seq1[i - 1])\n",
+        "            aligned_seq2.append('-')\n",
+        "            i -= 1\n",
+        "        else:\n",
+        "            aligned_seq1.append('-')\n",
+        "            aligned_seq2.append(seq2[j - 1])\n",
+        "            j -= 1\n",
+        "\n",
+        "    # Reverse aligned sequences\n",
+        "    aligned_seq1.reverse()\n",
+        "    aligned_seq2.reverse()\n",
+        "\n",
+        "    return score_matrix[m][n], ''.join(aligned_seq1), ''.join(aligned_seq2)\n",
+        "\n",
+        "# Example sequences\n",
+        "seq1 = \"ATGCATGCATGCATGC\"\n",
+        "seq2 = \"CGTACGTACGTACGTA\"\n",
+        "\n",
+        "# Perform alignment\n",
+        "score, aligned_seq1, aligned_seq2 = needleman_wunsch(seq1, seq2)\n",
+        "print(\"Score:\", score)\n",
+        "print(\"Aligned seq1:\", aligned_seq1)\n",
+        "print(\"Aligned seq2:\", aligned_seq2)\n"
+      ],
+      "metadata": {
+        "id": "B56b_0RKUCrI",
+        "outputId": "60997afb-17cc-4837-b009-80c155399b63",
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        }
+      },
+      "execution_count": 3,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Score: -3\n",
+            "Aligned seq1: -ATGCATGCATGCATGC\n",
+            "Aligned seq2: CGTACGTACGTACGT-A\n"
+          ]
+        }
+      ]
+    }
+  ]
+}
