@@ -1,0 +1,108 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": [],
+      "authorship_tag": "ABX9TyMxfPa1K0flHzd4v4sJIzmU",
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/sravyasree02/sravyasree02/blob/main/scientific%20computing%20ex%201\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "id": "qPP0c7NMYGnQ"
+      },
+      "outputs": [],
+      "source": []
+    },
+    {
+      "cell_type": "markdown",
+      "source": [],
+      "metadata": {
+        "id": "b-t_FH84YSEQ"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "from google.colab import drive\n",
+        "drive.mount('/content/drive')\n",
+        " %%bash\n",
+        "# Define the source and target directories\n",
+        "directory_1=\"/content/drive/My Drive/directory_1\"  # Replace with your actual path\n",
+        "directory_2=\"/content/drive/My Drive/directory_2\"  # Replace with your actual path\n",
+        "\n",
+        "# Create directory_2 if it doesn't exist\n",
+        "mkdir -p \"$directory_2\"\n",
+        "\n",
+        "# Navigate to directory_1\n",
+        "cd \"$directory_1\"\n",
+        "\n",
+        "# Move .fasta files to directory_2\n",
+        "find . -name \"*.fasta\" -exec mv {} \"$directory_2\" \\;\n"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/",
+          "height": 106
+        },
+        "id": "kIVYzUvdYbmq",
+        "outputId": "5b7d986a-f453-4c67-801e-677dfc6ad59a"
+      },
+      "execution_count": 10,
+      "outputs": [
+        {
+          "output_type": "error",
+          "ename": "IndentationError",
+          "evalue": "unexpected indent (<ipython-input-10-c8ec68ee2b0d>, line 3)",
+          "traceback": [
+            "\u001b[0;36m  File \u001b[0;32m\"<ipython-input-10-c8ec68ee2b0d>\"\u001b[0;36m, line \u001b[0;32m3\u001b[0m\n\u001b[0;31m    get_ipython().run_line_magic('%bash', '')\u001b[0m\n\u001b[0m    ^\u001b[0m\n\u001b[0;31mIndentationError\u001b[0m\u001b[0;31m:\u001b[0m unexpected indent\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "%%bash\n",
+        "# Define the source and target directories\n",
+        "directory_1=\"/content/drive/My Drive/directory_1\"  # Replace with your actual path\n",
+        "directory_2=\"/content/drive/My Drive/directory_2\"  # Replace with your actual path\n",
+        "\n",
+        "# Create directory_2 if it doesn't exist\n",
+        "mkdir -p \"$directory_2\"\n",
+        "\n",
+        "# Navigate to directory_1\n",
+        "cd \"$directory_1\"\n",
+        "\n",
+        "# Move .fasta files to directory_2\n",
+        "find . -name \"*.fasta\" -exec mv {} \"$directory_2\" \\;"
+      ],
+      "metadata": {
+        "id": "InOQzpLrbv-l"
+      },
+      "execution_count": 12,
+      "outputs": []
+    }
+  ]
+}
